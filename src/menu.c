@@ -2,11 +2,11 @@
 #include"../header/menu.h"
 
 int menu_player_choice(){
-    int choice = O;
+    int choice = 0;
     do{
         printf("CHOICE>");
         scanf("%d", &choice);
-    }while(choice<= 4,&&choice>=1);
+    }while(choice>= 4 && choice<=1);
     return choice;
 }
 
@@ -17,4 +17,3 @@ int display_menu(){
     return menu_player_choice();
 }
 
-int 

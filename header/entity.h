@@ -31,12 +31,14 @@ typedef struct{
     int activ_stamina;
 }StaminaSystem;
 
+
 typedef struct{
     Race race;
     char name[100];
     LifeSystem life;
     LevelSystem level;
     StaminaSystem stamina;
+    int in_defence;
 }EntitySystem;
 
 

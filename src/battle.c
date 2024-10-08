@@ -1,18 +1,23 @@
 #include "../header/battle.h"
 
-const int NUM_DEAD_SENT = 10;
+const int NUM_DEAD_SENT = 15;
 
 char DEAD_SENT[10][100]={
     " c'est fait casse en deux ", //0
     " a ete Atomise", //1
     " c'est fait ecarte", //2
     " mange les asticots", //3
-    " a rejoint ca grands mères", //4
+    " a rejoint ta grands mère", //4
     " a retrouve sont Createur", //5
     " a rencontre l'inflexible force du destin", //6
     " est parti bouffer les pissenlits par la racine", //7
     " habite maintenet le boulevard des allonges", //8
-    " a renconte la faucheuse"//9
+    " a renconte la faucheuse", //9
+    " est maintenent en enfer", //10
+    " ne vera plus la lumier du jours", //11
+    " c'est fait reduir en poussiere", //12
+    " est mort", //13
+    " a ete tuer",//14
 };
 
 int roll_dice(int faces){
@@ -38,10 +43,15 @@ void take_damage(EntitySystem *entity, int damage){
 }
 
 
-void attaque_taget(EntitySystem *target_entity){
-    int power = roll_dices(3,6);
-    take_damage(target_entity, power);
-    display_entity(*target_entity);
+void attack_taget(EntitySystem *target_entity){
+    if(target_entity->in_defence != 1){
+        int power = roll_dices(3,6);
+        take_damage(target_entity, power);
+        display_entity(*target_entity);
+    }else{
+        int power = roll_dices(1,6);
+        target_entity->in_defence = 0;
+    }
 }
 
 
@@ -57,10 +67,26 @@ void player_move(EntitySystem *player, EntitySystem *enemy){
     int choice = 0;
     choice = display_menu();
     switch(choice){
-        case 1:attaque_taget(enemy);
-
+        case 1:attack_taget(enemy);break;
+        case 2:activate_defence(player);break;
+        case 3:made_super_attack(player, enemy);break;
+        case 4:printf("UNREADY");
     }
 }
+
+void made_super_attack(EntitySystem *entity_atk, EntitySystem *entity_target){
+    printf("%s fait une super attack imblocable!!!", entity_atk->name);
+    int power = roll_dices(10,6);
+    take_damage(entity_target, power);
+    display_entity(*entity_target);
+}
+
+
+void activate_defence(EntitySystem *entity){
+    printf("%s ce defend", entity->name);
+    entity->in_defence = 1;
+}
+
 
 void battle_turn(EntitySystem *player, EntitySystem *enemy){
     int player_speed_dice = 0;
@@ -70,11 +96,11 @@ void battle_turn(EntitySystem *player, EntitySystem *enemy){
         enemy_speed_dice = roll_dice(6);
     }while(player_speed_dice==enemy_speed_dice);
     if(player_speed_dice > enemy_speed_dice){
-        void player_move(player, enemy);
-        attaque_taget(player);
+        player_move(player, enemy);
+        attack_taget(player);
     }else{
-        attaque_taget(player);
-        attaque_taget(enemy);
+        attack_taget(player);
+        player_move(player, enemy);
     }
 }
 

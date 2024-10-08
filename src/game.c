@@ -2,7 +2,7 @@
 
 void run(){
     EntitySystem player = player_init();
-    EntitySystem enemy = enemy_init(DRAGON, 1000);
+    EntitySystem enemy = enemy_init(SLIME, 12);
     display_entity(player);
     battle_loop(&player, &enemy);
 }

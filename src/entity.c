@@ -23,6 +23,7 @@ hp(niv1), hp/niveaux )
 */
 void define_enemy_stat(EntitySystem *enemy, char name[], int lvl, int hp, int bonus_hp, int stamina, int bonus_stamina){
     strcpy(enemy->name, name);
+    enemy->in_defence = 0;
     enemy->level.lvl= lvl;
     enemy->life.max_hp = hp + bonus_hp*lvl -bonus_hp;
     enemy->life.activ_hp = enemy->life.max_hp;
@@ -33,6 +34,7 @@ void define_enemy_stat(EntitySystem *enemy, char name[], int lvl, int hp, int bo
 EntitySystem player_init(){
     EntitySystem player;
     define_name_player(&player);
+    player.in_defence = 0;
     player.level.lvl = 1;
     player.life.max_hp = 100;
     player.life.activ_hp = 100;
