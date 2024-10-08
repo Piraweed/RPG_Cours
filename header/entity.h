@@ -26,19 +26,23 @@ typedef struct{
     int activ_exp;
 }LevelSystem;
 
+typedef struct{
+    int max_stamina;
+    int activ_stamina;
+}StaminaSystem;
 
 typedef struct{
     Race race;
     char name[100];
     LifeSystem life;
     LevelSystem level;
-    int coins;
+    StaminaSystem stamina;
 }EntitySystem;
 
 
 
 EntitySystem enemy_init(Race race, int lvl);
-void define_enemy_stat(EntitySystem *enemy, char name[], int lvl, int hp, int bonus_hp);// Possible UPDATE ICI PLUS TARD SI NOUVEAUX STATS COMME POWER, SPEED, LVL et tout
+void define_enemy_stat(EntitySystem *enemy, char name[], int lvl, int hp, int bonus_hp, int stamina, int bonus_stamina);// Possible UPDATE ICI PLUS TARD SI NOUVEAUX STATS COMME POWER, SPEED, LVL et tout
 
 EntitySystem player_init();
 void define_name_player(EntitySystem *player);

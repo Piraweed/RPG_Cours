@@ -53,6 +53,15 @@ int is_dead(EntitySystem entity){
 }
 
 
+void player_move(EntitySystem *player, EntitySystem *enemy){
+    int choice = 0;
+    choice = display_menu();
+    switch(choice){
+        case 1:attaque_taget(enemy);
+
+    }
+}
+
 void battle_turn(EntitySystem *player, EntitySystem *enemy){
     int player_speed_dice = 0;
     int enemy_speed_dice = 0;
@@ -61,7 +70,7 @@ void battle_turn(EntitySystem *player, EntitySystem *enemy){
         enemy_speed_dice = roll_dice(6);
     }while(player_speed_dice==enemy_speed_dice);
     if(player_speed_dice > enemy_speed_dice){
-        attaque_taget(enemy);
+        void player_move(player, enemy);
         attaque_taget(player);
     }else{
         attaque_taget(player);

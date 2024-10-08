@@ -5,7 +5,8 @@ NAME = Codarena
 SRCS = main.c \
 	src/entity.c \
 	src/battle.c \
-	src/game.c
+	src/game.c \
+	src/menu.c
 
 all :  $(NAME)
 

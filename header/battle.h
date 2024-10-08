@@ -5,6 +5,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include "entity.h"
+#include "menu.h"
 
 int roll_dice(int faces);
 int roll_dices(int faces, int dices_number);
