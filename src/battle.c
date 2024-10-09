@@ -2,7 +2,7 @@
 
 const int NUM_DEAD_SENT = 15;
 
-char DEAD_SENT[10][100]={
+char DEAD_SENT[15][100]={
     " c'est fait casse en deux ", //0
     " a ete Atomise", //1
     " c'est fait ecarte", //2
@@ -70,12 +70,12 @@ void player_move(EntitySystem *player, EntitySystem *enemy){
         case 1:attack_taget(enemy);break;
         case 2:activate_defence(player);break;
         case 3:made_super_attack(player, enemy);break;
-        case 4:printf("UNREADY");
+        case 4:printf("UNREADY\n");
     }
 }
 
 void made_super_attack(EntitySystem *entity_atk, EntitySystem *entity_target){
-    printf("%s fait une super attack imblocable!!!", entity_atk->name);
+    printf("%s fait une super attack imblocable!!!\n", entity_atk->name);
     int power = roll_dices(10,6);
     take_damage(entity_target, power);
     display_entity(*entity_target);
