@@ -1,6 +1,7 @@
 JE suis a l'ajout des menu:
     [X]Menu qui s'affiche;
     [X]Possiblité d'attaqué,
+<<<<<<< HEAD
     []amelioré les stats de combats,
     []ameliorer le sys de combat pour les dee
         []inclure ne nombre et face de dé en variable
