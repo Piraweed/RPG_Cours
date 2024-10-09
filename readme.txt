@@ -13,3 +13,9 @@ JE suis a l'ajout des menu:
     []Possiblité de defendre, 
     []super attaque qui lance le double de dée dée en plus X= stamina
     []rest; restaure le stamina
+=======
+    []globaliser les gauge;
+    []Possiblité de defendre, 
+    []super attaque qui lance le double de dée dée en plus X= stamina
+    []rest; restaure le stamina
+>>>>>>> 3f01a8336977c0bda52ed50765e916b3490247ed
